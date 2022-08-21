@@ -20,6 +20,10 @@ app_secret = os.environ["APP_SECRET"]
 user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
 
+url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+res = requests.get(url).json()
+weather = res['data']['list'][0]
+
 def get_date():
   return time.strftime('%Y-%m-%d', time.localtime())
 
@@ -28,21 +32,12 @@ def get_menstruation():
   return delta.days
 
 def get_weather():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
 
 def get_low():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['low'])
 
 def get_high():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['high'])
 
 def get_count():
