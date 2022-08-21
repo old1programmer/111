@@ -24,7 +24,7 @@ def get_date():
   return time.strftime('%Y-%m-%d', time.localtime())
 
 def get_menstruation():
-  delta = today - datetime.strptime(menstruation, "%m-%d")
+  delta = today - datetime.strptime(menstruation, "%Y-%m-%d")
   return delta.days
 
 def get_weather():
