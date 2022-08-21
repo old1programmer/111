@@ -35,10 +35,10 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_low():
-  return weather['weather'], math.floor(weather['low'])
+  return math.floor(weather['low'])
 
 def get_high():
-  return weather['weather'], math.floor(weather['high'])
+  return math.floor(weather['high'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
